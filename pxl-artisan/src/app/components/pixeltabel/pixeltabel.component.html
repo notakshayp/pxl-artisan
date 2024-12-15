@@ -1,0 +1,12 @@
+  <div class="flex flex-col gap-1" id="capture-area">
+    @for(row of rows;track row;let idxRow = $index){
+        <div class="flex gap-1">
+            @for(col of columns;track col;let idxCol = $index){
+                <div (click)="addColor(idxRow,idxCol)" [id]="getCellID(idxRow,idxCol)" class="w-8 h-8 sm:w-12 sm:h-12 border border-gray-400 boder border-opacity-70 sm:hover:border-accent flex items-center justify-center rounded-lg"              >
+              </div>
+            }
+        </div>
+    }
+
+  </div>
+  

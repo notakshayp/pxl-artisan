@@ -1,0 +1,29 @@
+<!-- nav bar  -->
+
+<!-- ❤️ pxl artisan                                      btn download art--> 
+<nav class="flex items-center justify-between px-6 py-4">
+  <!-- Left Side: Emoji and Text -->
+  <div class="flex items-center space-x-2">
+    <!-- <span class="inline-block transform -rotate-90"><span class="text-2xl text-red-500"><span class="text-sm font-bold relative left-[0.1em] top-[-0.2em] ">&lt;</span>3</span></span> -->
+     <span>
+      <img src="../assets/svg/love.svg" class="h-5 w-5">
+     </span>
+    <span class="text-lg font-semibold text-text relative top-[-0.3em]">pxl<span class="relative top-[-0.1em] text-3xl">.</span>artisan</span>
+  </div>
+
+  <!-- Right Side: Button with Rounded Div -->
+  <div>
+    <button class="flex items-center justify-center px-4 py-2 border-2 rounded-full bg-accent text-background">
+      <span class="text-lg font-medium " (click)="captureDivAsImage()">Download</span>
+    </button>
+  </div>
+</nav>
+
+<!-- good to havev later div with canvas sizes buttons 8x8  16x16 32x32  -->
+<!-- table with 16x16 -->
+ <section class="flex justify-center m-8">
+  <app-pixeltabel [rowCount]="rows" [columnCount]="cols" ></app-pixeltabel>
+ </section>
+
+
+<!-- div with color picker  -->
