@@ -11,6 +11,7 @@ import { Component, Input } from '@angular/core';
 export class PixeltabelComponent {
   @Input() rowCount: number = 5; // Default row count
   @Input() columnCount: number = 5; // Default column count
+  @Input() hexColor!:string;
   rows: number[] = [];
   columns: number[] = [];
 
@@ -20,13 +21,12 @@ export class PixeltabelComponent {
   }
 
   addColor(idxRow: number, idxCol: number): void {
-    const hexColor="#FF5733"
     const cellID = this.getCellID(idxRow, idxCol);
     const cell = document.getElementById(cellID);
   
     if (cell) {
       console.log("setting cellId with FFF",cellID)
-      cell.style.backgroundColor = hexColor; // Sets or updates the background color
+      cell.style.backgroundColor = this.hexColor; // Sets or updates the background color
     } else {
       console.error(`Cell with ID ${cellID} not found`);
     }

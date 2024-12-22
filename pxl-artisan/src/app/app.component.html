@@ -3,18 +3,18 @@
 <!-- ❤️ pxl artisan                                      btn download art--> 
 <nav class="flex items-center justify-between px-6 py-4">
   <!-- Left Side: Emoji and Text -->
-  <div class="flex items-center space-x-2">
+  <div class="flex items-center justify-between  space-x-2">
     <!-- <span class="inline-block transform -rotate-90"><span class="text-2xl text-red-500"><span class="text-sm font-bold relative left-[0.1em] top-[-0.2em] ">&lt;</span>3</span></span> -->
-     <span>
-      <img src="../assets/svg/love.svg" class="h-7 w-7">
+    <span >
+      <img src="../assets/svg/love.svg" class="h-4 md:h-7 w-4 md:w-7">
      </span>
-    <span class="text-2xl font-semibold text-text relative top-[-0.2em]">pxl<span class="relative top-[-0.1em] text-3xl"> . </span>artisan</span>
+    <span class="text-lg md:text-2xl font-semibold text-text relative top-[-0.2em]"  id="logo-text">pxl<span class="relative top-[-0.1em] text-3xl">.</span>artisan</span>
   </div>
 
   <!-- Right Side: Button with Rounded Div -->
   <div>
     <button class="flex items-center justify-center border-2 rounded-full bg-gradient-to-tr from-pink-600 to-purple-600 p-0.5 text-background">
-      <span class="text-lg font-normal bg-background rounded-full  px-4 py-2 text-text" (click)="captureDivAsImage()">Download</span>
+      <span class="text-sm md:text-lg font-normal bg-background rounded-full px-2 md:px-4 py-1 md:py-2 text-text" (click)="captureDivAsImage()">Download</span>
     </button>
   </div>
 </nav>
@@ -22,24 +22,48 @@
 <!-- good to havev later div with canvas sizes buttons 8x8  16x16 32x32  -->
 <!-- table with 16x16 -->
  <section class="flex justify-center m-8">
-  <app-pixeltabel [rowCount]="rows" [columnCount]="cols" ></app-pixeltabel>
+  <app-pixeltabel [rowCount]="rows" [columnCount]="cols" [hexColor]="currentColor()" ></app-pixeltabel>
  </section>
 
+ <section class="flex flex-col justify-center gap-8 ">
+  <div class="flex flex-row flex-wrap items-center gap-3 w-2/3 md:w-1/2 self-center">
+    @for(color of colors; track color; let clrIdx = $index) {
+      <!-- Color Tile -->
+      <div
+        id="swatch"
+        [ngClass]="{
+          'border-gray-200': selectedColorIndex !== clrIdx,
+          'border-gray-800': selectedColorIndex === clrIdx
+        }"
+        class="border-2 rounded-lg p-2 flex flex-col items-center self-center w-20  md:w-24 h-20 md:h-24 cursor-pointer"
+        (click)="updateSelectedColor(clrIdx)"
 
-<!-- div with color picker  -->
- <div class="flex flex-row justify-center gap-4 pt-10">
-  <div id="swatch" class="flex flex-col">
-    <input type="color" id="color" name="color" value="#FF0000" class="min-h-full min-w-full rounded-xl">
-    <div class="info p-3">
-      <h1 class="font-light">#FFEFG</h1>
-    </div>
+      >
+        <!-- Color Picker -->
+        <div class="w-full h-12 flex justify-center items-center">
+  <input
+    type="color"
+    class="w-full h-3/4 rounded"
+    [value]="colors[clrIdx]"
+    (click)="$event.stopPropagation()"
+    (blur)="onColorChange($event,clrIdx)"
+  />
+</div>
+
+        <!-- Color Hex Code -->
+        <div class="info pt-2">
+          <span class="font-light text-sm md:text-lg">{{ colors[clrIdx] }}</span>
+        </div>
+      </div>
+    }
+   
   </div>
-
-  <div id="swatch" class="flex flex-col">
-    <input type="color" id="color" name="color" value="#FF0000" class="min-h-full min-w-full rounded-xl">
-    <div class="info p-3">
-      <h1 class="font-light">#FFEFG</h1>
-    </div>
-  </div>
-
+   <!-- Add Color Button -->
+   <div
+   class="border-2 border-gray-500 rounded-full flex justify-center self-center px-6 py-3 w-1/3 mb-10 cursor-pointer"
+   (click)="addColorSwatch()"
+ >
+   <span class="font-extralight text-sm md:text-lg">Add +</span>
  </div>
+</section>
+
