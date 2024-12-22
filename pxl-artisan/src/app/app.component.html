@@ -35,24 +35,25 @@
           'border-gray-200': selectedColorIndex !== clrIdx,
           'border-gray-800': selectedColorIndex === clrIdx
         }"
-        class="border-2 rounded-lg p-2 flex flex-col items-center self-center w-20  md:w-24 h-20 md:h-24 cursor-pointer"
+        class="border-2 rounded-lg pb-2 flex flex-col items-center self-center w-20  md:w-24 h-20 md:h-24 cursor-pointer"
         (click)="updateSelectedColor(clrIdx)"
 
       >
         <!-- Color Picker -->
-        <div class="w-full h-12 flex justify-center items-center">
-  <input
-    type="color"
-    class="w-full h-3/4 rounded"
-    [value]="colors[clrIdx]"
-    (click)="$event.stopPropagation()"
-    (blur)="onColorChange($event,clrIdx)"
-  />
-</div>
+      <div class="w-5/6 h-12 flex justify-center items-center  p-0 m-0 relative">
+          <input
+            type="color"
+            class="absolute top-0 left-0 w-full h-full rounded-sm cursor-pointer mt-2"
+            [value]="colors[clrIdx]"
+            (click)="$event.stopPropagation()"
+            (blur)="onColorChange($event, clrIdx)"
+          />
+        </div>
+        
 
         <!-- Color Hex Code -->
-        <div class="info pt-2">
-          <span class="font-light text-sm md:text-lg">{{ colors[clrIdx] }}</span>
+        <div class="info pb-2 mt-2">
+          <span class="font-light text-sm md:text-lg ">{{ colors[clrIdx] }}</span>
         </div>
       </div>
     }
