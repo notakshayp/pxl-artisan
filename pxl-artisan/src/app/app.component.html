@@ -6,15 +6,15 @@
   <div class="flex items-center space-x-2">
     <!-- <span class="inline-block transform -rotate-90"><span class="text-2xl text-red-500"><span class="text-sm font-bold relative left-[0.1em] top-[-0.2em] ">&lt;</span>3</span></span> -->
      <span>
-      <img src="../assets/svg/love.svg" class="h-5 w-5">
+      <img src="../assets/svg/love.svg" class="h-7 w-7">
      </span>
-    <span class="text-lg font-semibold text-text relative top-[-0.3em]">pxl<span class="relative top-[-0.1em] text-3xl">.</span>artisan</span>
+    <span class="text-2xl font-semibold text-text relative top-[-0.2em]">pxl<span class="relative top-[-0.1em] text-3xl"> . </span>artisan</span>
   </div>
 
   <!-- Right Side: Button with Rounded Div -->
   <div>
-    <button class="flex items-center justify-center px-4 py-2 border-2 rounded-full bg-accent text-background">
-      <span class="text-lg font-medium " (click)="captureDivAsImage()">Download</span>
+    <button class="flex items-center justify-center border-2 rounded-full bg-gradient-to-tr from-pink-600 to-purple-600 p-0.5 text-background">
+      <span class="text-lg font-normal bg-background rounded-full  px-4 py-2 text-text" (click)="captureDivAsImage()">Download</span>
     </button>
   </div>
 </nav>
@@ -27,3 +27,19 @@
 
 
 <!-- div with color picker  -->
+ <div class="flex flex-row justify-center gap-4 pt-10">
+  <div id="swatch" class="flex flex-col">
+    <input type="color" id="color" name="color" value="#FF0000" class="min-h-full min-w-full rounded-xl">
+    <div class="info p-3">
+      <h1 class="font-light">#FFEFG</h1>
+    </div>
+  </div>
+
+  <div id="swatch" class="flex flex-col">
+    <input type="color" id="color" name="color" value="#FF0000" class="min-h-full min-w-full rounded-xl">
+    <div class="info p-3">
+      <h1 class="font-light">#FFEFG</h1>
+    </div>
+  </div>
+
+ </div>
