@@ -75,11 +75,27 @@ export class AppComponent {
       borderSeparator.className = 'w-full border-t border-gray-300 mt-4'; // Thin top border with margin
       polaroidWrapper.appendChild(borderSeparator);
   
-      // Add the "pxl.artisan" text
-      const artisanText = document.createElement('div');
-      artisanText.innerText = 'pxl.artisan';
-      artisanText.className = 'text-center font-bold text-xl mt-4'; // Bold and centered
-      polaroidWrapper.appendChild(artisanText);
+      // Add the "pxl.artisan " logo text
+
+      const artisanHTML = `
+      <div class="flex items-center justify-between space-x-2">
+        <span>
+          <img src="../assets/svg/love.svg" class="h-4 md:h-7 w-4 md:w-7 relative top-[0.8em]">
+        </span>
+        <span class="text-lg md:text-2xl font-semibold text-text relative top-[-0.2em]" id="logo-text">
+          pxl<span class="relative top-[-0.1em] text-3xl">.</span>artisan
+        </span>
+      </div>
+
+    `;
+
+    // Create a container div and set the HTML
+    const artisanContainer = document.createElement('div');
+    artisanContainer.innerHTML = artisanHTML;
+
+    // Append it to the parent container
+    polaroidWrapper.appendChild(artisanContainer);
+
   
       // Add a timestamp below the "pxl.artisan" text
       const timestamp = document.createElement('div');
